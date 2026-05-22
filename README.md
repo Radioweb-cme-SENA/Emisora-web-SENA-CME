@@ -8,7 +8,9 @@ Descripción Técnica
 La arquitectura del sistema se basa en la integración de tres componentes principales:
 
 Transmisión de Audio -emisión en vivo: Configuración de flujo de datos mediante el software de código abierto 'butt' (Broadcast Using This Tool) y el servidor de streaming Caster.fm.
+
 Gestión de Contenido: Implementación de servicios de podcast a través de la plataforma SoundCloud.
+
 Interfaz de Usuario-plataforma web: Diseño y despliegue en la plataforma Blogger, utilizando scripts personalizados en HTML y CSS para la integración de reproductores multimedia.
 
 Estructura del Repositorio
