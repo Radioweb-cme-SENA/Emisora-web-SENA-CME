@@ -16,7 +16,6 @@ Interfaz de Usuario-plataforma web: Diseño y despliegue en la plataforma Blogge
 Estructura del Repositorio
 
 codigo-reproductor-blogger.html: Contiene el script de integración del reproductor en vivo y la estructura del blog.
-Documentos: En esta sección se alojarán los manuales técnicos y de producción (en proceso de carga).
 
 Responsables del Proyecto
 
