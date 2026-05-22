@@ -1,0 +1,214 @@
+<style>
+  :root {
+    --verde-sena: #39A900; 
+    --verde-oscuro: #007832;
+    --azul-oscuro: #00304D;
+    --gris-claro: #F6F6F6;
+    --blanco: #FFFFFF;
+  }
+
+  /* BOTÓN CTA */
+  .botoncta { 
+    background: #2C2C2C; 
+    color: white !important; 
+    padding: 12px 24px; 
+    border-radius: 8px; 
+    border: none; 
+    font-size: 1.1rem;
+    cursor: pointer; 
+    transition: ease-in 0.2s;
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .botoncta:hover { 
+    background: var(--verde-sena); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  /* LIMPIEZA DE ELEMENTOS EXTERNOS (BLOGGER) */
+  .profile-wrapper, .author-profile, .sidebar, #sidebartop, #sidebarbottom, .widget.Profile {
+    display: none !important;
+  }
+
+  .main-inner, .content-inner, .post-body {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #31172C;
+    background: linear-gradient(180deg, rgba(49, 23, 44, 1) 20%, rgba(8, 78, 38, 1) 100%);
+  }
+
+  /* CONTENEDORES GENERALES */
+  .contenedor-inicio {
+    font-family: 'Calibri', sans-serif;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;  
+    box-sizing: border-box;
+  }
+
+  /* BANNER PRINCIPAL */
+  .hero-banner {
+    background: transparent;
+    border-radius: 15px;
+    padding: 50px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .hero-banner h1 { 
+    font-size: 3.5rem !important; 
+    font-weight: 700 !important; 
+    margin: 0 !important; 
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important; 
+    line-height: 1.1 !important; 
+    color: var(--verde-sena) !important;
+  }
+
+  /* REJILLA RESPONSIVA (GRID) */
+  .grid-dashboard {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  /* TARJETAS (CARDS) */
+  .card-premium, .card-premium2, .card-premium3 {
+    background: transparent;
+    border-radius: 12px;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+    transition: 0.3s;
+    border-bottom: 4px solid var(--verde-sena);
+    width: 100%;
+  }
+
+  .card-premium:hover, .card-premium2:hover, .card-premium3:hover { 
+    transform: translateY(-5px); 
+  }
+
+  /* TEXTOS DENTRO DE CARDS */
+  .card-premium p, .card-premium2 p, .card-premium3 p {
+    color: white;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 15px 0;
+    white-space: pre-wrap;
+  }
+
+  .card-premium2 p span, .card-premium3 p span {
+    color: var(--verde-sena) !important;
+  }
+
+  /* CONTENEDOR DE VIDEO RESPONSIVO OPTIMIZADO */
+  .media-container {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .video-responsive object, 
+  .video-responsive iframe, 
+  .video-responsive embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* AJUSTES ESPECÍFICOS PARA MÓVILES */
+  @media screen and (max-width: 768px) {
+    .contenedor-inicio {
+      padding: 10px;
+    }
+    .hero-banner {
+      padding: 25px 10px !important;
+    }
+    .hero-banner h1 {
+      font-size: 2rem !important; 
+      line-height: 1.2 !important;
+    }
+    .grid-dashboard {
+      grid-template-columns: 1fr; /* Una sola columna en celulares */
+      gap: 15px;
+    }
+    .card-premium, .card-premium2, .card-premium3 {
+      padding: 20px 15px;
+    }
+    .card-premium p, .card-premium2 p, .card-premium3 p {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<div class="contenedor-inicio">
+  
+  <div class="hero-banner">
+    <h1>¿Qué es la <br />emisora web?</h1>
+  </div>
+
+  <div class="grid-dashboard">
+    <div class="card-premium">
+      <span style="font-size: 45px;">🎙️</span>
+      <p>Es un espacio a cargo del Centro de Materiales y Ensayos para dar a conocer la investigación, innovación y aprendizaje de todos los centros que constituyen la regional del Distrito Capital.</p>
+    </div>
+
+    <div class="card-premium">
+      <span style="font-size: 45px;">🎧</span>
+      <p>Descubre nuestra radio web y su programación.</p>
+      <button class="botoncta" onclick="mostrarID('sena')">Ver más</button>
+    </div>
+  </div>
+
+  <div class="grid-dashboard">
+    <div class="card-premium2">
+      <p><span>¡Programa en vivo!</span></p>
+      <button class="botoncta" onclick="mostrarID('sena')">¡Escúchalo ahora!</button>
+    </div>
+
+    <div class="media-container">
+      <div class="video-responsive">
+        <object class="BLOG_video_class" contentid="d1e7f8181d81616a" id="BLOG_video-d1e7f8181d81616a"></object>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-dashboard">
+    <div class="card-premium2">
+      <p><span>¡Programa en vivo!</span></p>
+      <button class="botoncta" onclick="mostrarID('sena')">¡Escúchalo ahora!</button>
+    </div>
+    
+    <div class="card-premium3">
+      <p style="font-size: 2rem;"><span>Nuestros<br />programas<br />destacados</span></p>
+    </div>
+  </div>
+
+  <div style="border-top: 1px solid rgba(238, 238, 238, 0.2); margin-top: 50px; padding: 20px; text-align: center;">
+    <p style="color: #aaaaaa; font-size: 11px; font-weight: 600; letter-spacing: 2px; margin: 0;">CENTRO DE MATERIALES Y ENSAYOS • CONOCIMIENTO PARA TODOS LOS COLOMBIANOS</p>
+    <div style="background: var(--verde-sena); border-radius: 10px; height: 5px; margin: 10px auto; width: 60px;"></div>
+  </div>
+
+</div>
