@@ -1,0 +1,556 @@
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght=300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+  /* CONFIGURACIÓN GLOBAL DE COLORES INSTITUCIONALES */
+  :root {
+    --verde-sena: #39A900;    /* Verde principal SENA */
+    --verde-oscuro: #007832;  /* Verde Oscuro SENA */
+    --azul-oscuro: #00304D;   /* Azul institucional */
+    --gris-claro: #F6F6F6;    /* Fondo gris claro */
+    --blanco: #FFFFFF;        /* Color blanco */
+    --morado:#71267A;         /*Color morado */
+  }
+
+  /* ESTILOS DE LOS BOTONES DE ACCIÓN */
+  .botoncta { 
+    background: #2C2C2C; 
+    color: white !important; 
+    padding: 12px 24px; 
+    border-radius: 8px; 
+    border: none; 
+    font-size: 1.1rem;
+    cursor: pointer; 
+    transition: ease-in 0.2s;
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .botoncta:hover { 
+    background: var(--verde-sena); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+  }
+
+  /* LIMPIEZA DE INTERFAZ: Blogger por defecto */
+  .profile-wrapper, .author-profile, .sidebar, #sidebartop, #sidebarbottom, .widget.Profile {
+    display: none !important;
+  }
+
+  /* FONDO DE LA PÁGINA: Degradado institucional */
+  .main-inner, .content-inner, .post-body {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #31172C;
+    background: linear-gradient(180deg, rgba(49, 23, 44, 1) 20%, rgba(8, 78, 38, 1) 100%);
+  }
+
+  /* ENMARCADO GENERAL */
+  .contenedor-inicio {
+    font-family: 'Calibri', sans-serif;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;  
+    box-sizing: border-box;
+  }
+
+  /* ESTILOS DEL SLIDER 1 (BANNER PRINCIPAL)*/
+  .banner-slider {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+  .banner-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  .banner-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* CONFIGURACIÓN DE FONDOS DE LOS SLIDES */
+  /* Slide 1: Imagen personalizada de Blogger con filtro oscuro incorporado */
+  .banner-slide:nth-child(1) .banner-bg { 
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpxcAsA9YV8X_2sRb3veNaUewmRRfApbHAz0_pugJAINM7rKoWW1B-38f2iCVDdBiXkH1EDJm4GMLow_6TpyKURagHj3QQIPNc1tU2nUhU07-tpyhdqhDN2_AttOeLSdcMvXDTDdtv2gzLfdhuq9_QulTn8n9VbZ5wCLW-sb32J6jtw7sv0X0zvEZ5IrQ/s1376/fe1b6e1500e13e75b701eea4413fe3caa4354a00%20%281%29.jpg") no-repeat center center;
+    background-size: cover;
+  }
+  /* Slides restantes con degradados de color */
+  .banner-slide:nth-child(2) .banner-bg { background: linear-gradient(135deg, #051a0a 0%, #0c3d1e 40%, #1a7a40 100%); }
+  .banner-slide:nth-child(3) .banner-bg { background: linear-gradient(135deg, #1a0e04 0%, #3d2208 40%, #8c4e14 100%); }
+  .banner-slide:nth-child(4) .banner-bg { background: linear-gradient(135deg, #04141a 0%, #083347 40%, #0e6e9e 100%); }
+
+  .banner-bg {
+    position: absolute;
+    inset: 0;
+  }
+  .banner-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.03) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
+  }
+  .banner-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 4rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    z-index: 2;
+  }
+  .banner-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--verde-sena);
+    margin-bottom: 0.75rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.6s ease 0.1s;
+  }
+  .banner-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    transform: translateY(25px);
+    opacity: 0;
+    transition: all 0.6s ease 0.2s;
+  }
+  .banner-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    max-width: 550px;
+    line-height: 1.6;
+    transform: translateY(25px);
+    opacity: 0;
+    transition: all 0.6s ease 0.3s;
+  }
+  .banner-cta {
+    margin-top: 1.5rem;
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    background: var(--verde-oscuro);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    transform: translateY(25px);
+    opacity: 0;
+    transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s, background 0.25s;
+    align-self: flex-start;
+  }
+  .banner-cta:hover {
+    background: var(--verde-sena);
+  }
+
+  /* Activadores de animación del Slider */
+  .banner-slide.is-active .banner-tag,
+  .banner-slide.is-active .banner-title,
+  .banner-slide.is-active .banner-desc,
+  .banner-slide.is-active .banner-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Controles de navegación */
+  .banner-controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+  }
+  .banner-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  .banner-btn:hover {
+    background: var(--verde-sena);
+    border-color: var(--verde-sena);
+  }
+  .banner-dots {
+    position: absolute;
+    bottom: 2.4rem;
+    left: 4rem;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+  .banner-dot {
+    width: 20px;
+    height: 3px;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .banner-dot.is-active {
+    width: 35px;
+    background: var(--verde-sena);
+  }
+  .banner-counter {
+    position: absolute;
+    top: 2rem;
+    right: 4rem;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    z-index: 10;
+  }
+  .banner-counter span { color: #fff; font-weight: bold; }
+
+  /* SECCIÓN DEL TÍTULO PRINCIPAL DEBAJO DEL SLIDER */
+  .hero-banner {
+    background: transparent;
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .hero-banner h1 { 
+    font-size: 3.5rem !important; 
+    font-weight: 700 !important; 
+    margin: 0 !important; 
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important; 
+    line-height: 1.1 !important; 
+    color: var(--verde-sena) !important;
+  }
+
+  /* GRID / DASHBOARD CONTENEDOR */
+  .grid-dashboard {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  /* TARJETAS INFORMATIVAS */
+  .card-premium, .card-premium2, .card-premium3 {
+    background: transparent;
+    border-radius: 12px;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+    transition: 0.3s;
+    border-bottom: 4px solid var(--verde-sena);
+    width: 100%;
+  }
+  .card-premium:hover, .card-premium2:hover, .card-premium3:hover { 
+    transform: translateY(-5px); 
+  }
+  .card-premium p, .card-premium2 p, .card-premium3 p {
+    color: white;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 15px 0;
+    white-space: pre-wrap;
+  }
+  .card-premium2 p span, .card-premium3 p span {
+    color: var(--verde-sena) !important;
+  }
+
+  /* DISEÑO RESPONSIVO PARA VIDEOS */
+  .media-container {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }  
+  .video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+  .video-responsive object, .video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* FOOTER CORPORATIVO SENA */    
+  footer {      
+    background-color: var(--verde-oscuro) !important;      
+    padding: 32px 40px 24px !important;      
+    text-align: center !important;    
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 50px;
+    border-radius: 12px;
+  }      
+  footer p { 
+    color: #ffffff !important; 
+    font-family: 'Work Sans', sans-serif !important; 
+    font-size: 0.78rem !important; 
+    line-height: 1.6 !important; 
+    margin: 0 0 4px 0 !important; 
+  }
+  .footer-social { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 16px; 
+    margin-top: 20px; 
+    flex-wrap: wrap; 
+  }      
+  .social-icon { 
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: #fff; 
+    background: var(--azul-oscuro); 
+    text-decoration: none; 
+  }      
+  .footer-bottom { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 12px; 
+    flex-wrap: wrap; 
+  }      
+  .footer-handle { font-family: 'Work Sans', sans-serif; font-weight: 700; font-size: 1rem; color: #ffffff !important; }
+  .footer-web { font-family: 'Work Sans', sans-serif; font-weight: 800; font-size: 1rem; color: #ffffff !important; }
+
+  /* ADAPTACIÓN PARA MÓVILES (OPTIMIZADA) */
+  @media screen and (max-width: 768px) {
+    .banner-slider { height: 320px; margin-bottom: 20px; }
+    .banner-content { padding: 1.5rem 1.2rem; justify-content: center; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.3) 100%); }
+    .banner-tag { font-size: 9px; margin-bottom: 0.4rem; }
+    .banner-title { font-size: 1.3rem !important; margin-bottom: 0.5rem; max-width: 100%; }
+    .banner-desc { font-size: 12px; line-height: 1.4; max-width: 100%; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .banner-cta { margin-top: 0.8rem; padding: 8px 18px; font-size: 11px; }
+    .banner-controls { bottom: 0.8rem; right: 1.2rem; gap: 8px; }
+    .banner-btn { width: 32px; height: 32px; font-size: 12px; }
+    .banner-dots { bottom: 1.2rem; left: 1.2rem; gap: 5px; }
+    .banner-dot { width: 12px; height: 3px; }
+    .banner-dot.is-active { width: 22px; }
+    .banner-counter { top: 1rem; right: 1.2rem; font-size: 11px; }
+    .contenedor-inicio { padding: 10px; }
+    .hero-banner { padding: 15px 5px !important; margin-bottom: 10px; }
+    .hero-banner h1 { font-size: 2.2rem !important; line-height: 1.1 !important; }
+    .grid-dashboard { grid-template-columns: 1fr; gap: 15px; }
+    .card-premium, .card-premium2, .card-premium3 { padding: 25px 15px; }
+    .card-premium p, .card-premium2 p, .card-premium3 p { font-size: 1.1rem; margin: 10px 0; }
+    footer { padding: 24px 20px !important; margin-top: 30px; }
+  }
+  @media screen and (max-width: 480px) {
+    .banner-slider { height: 260px; }
+    .banner-title { font-size: 1.15rem !important; }
+    .banner-desc { -webkit-line-clamp: 2; }
+    .banner-controls, .banner-counter { display: none; } /* Oculta flechas y contador en pantallas mini para limpiar espacio */
+  }
+</style>
+
+<div class="contenedor-inicio">
+
+  <div class="banner-slider" id="bannerSlider">
+    <div class="banner-track" id="bannerTrack">
+      
+      <div class="banner-slide is-active">
+        <div class="banner-bg"></div>
+        <div class="banner-content" style="background: transparent;">
+          </div>
+      </div>
+      
+      <div class="banner-slide">
+        <div class="banner-bg"></div>
+        <div class="banner-content">
+          <span class="banner-tag">Cultura · Tendencias</span>
+          <h2 class="banner-title">Minimalismo radical: vivir con menos en la era digital</h2>
+          <p class="banner-desc">Una exploration profunda sobre cómo el minimalismo está transformando nuestros espacios y hábitos digitales.</p>
+          <a class="banner-cta" href="#">Explorar</a>
+        </div>
+      </div>
+      
+      <div class="banner-slide">
+        <div class="banner-bg"></div>
+        <div class="banner-content">
+          <span class="banner-tag">Fotografía · Arte</span>
+          <h2 class="banner-title">Luz y sombra: la nueva era de la fotografía urbana</h2>
+          <p class="banner-desc">Los fotógrafos que están capturando la esencia de las ciudades modernas a través de perspectivas únicas.</p>
+          <a class="banner-cta" href="#">Ver galería</a>
+        </div>
+      </div>
+      
+      <div class="banner-slide">
+        <div class="banner-bg"></div>
+        <div class="banner-content">
+          <span class="banner-tag">Viajes · Destinos</span>
+          <h2 class="banner-title">Los rincones ocultos de América del Sur que debes conocer</h2>
+          <p class="banner-desc">Destinos poco explorados que ofrecen experiencias auténticas lejos del turismo masivo.</p>
+          <a class="banner-cta" href="#">Descubrir</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="banner-counter"><span id="bannerCurrent">01</span> / 04</div>
+
+    <div class="banner-dots" id="bannerDots">
+      <div class="banner-dot is-active" data-index="0"></div>
+      <div class="banner-dot" data-index="1"></div>
+      <div class="banner-dot" data-index="2"></div>
+      <div class="banner-dot" data-index="3"></div>
+    </div>
+
+    <div class="banner-controls">
+      <button class="banner-btn" id="bannerPrev">←</button>
+      <button class="banner-btn" id="bannerNext">→</button>
+    </div>
+  </div>
+
+  <div class="hero-banner">
+    <h1>¿Qué es la <br />emisora web?</h1>
+  </div>
+
+  <div class="grid-dashboard">
+    <div class="card-premium">
+      <span style="font-size: 45px;">🎙️</span>
+      <p>Es un espacio a cargo del Centro de Materiales y Ensayos para dar a conocer la investigación, innovación y aprendizaje de todos los centros que constituyen la regional del Distrito Capital.</p>
+    </div>
+
+    <div class="card-premium">
+      <span style="font-size: 45px;">🎧</span>
+      <p>Descubre nuestra radio web y su programación.</p>
+      <button class="botoncta" onclick="mostrarID('sena')">Ver más</button>
+    </div>
+  </div>
+
+  <div class="grid-dashboard">
+    <div class="card-premium2">
+      <p><span>¡Programa en vivo!</span></p>
+      <button class="botoncta" onclick="mostrarID('sena')">¡Escúchalo ahora!</button>
+    </div>
+
+    <div class="media-container">
+      <div class="video-responsive">
+        <object class="BLOG_video_class" contentid="d1e7f8181d81616a" id="BLOG_video-d1e7f8181d81616a"></object>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-dashboard">
+    <div class="card-premium2">
+      <p><span>¡Programa en vivo!</span></p>
+      <button class="botoncta" onclick="mostrarID('sena')">¡Escúchalo ahora!</button>
+    </div>
+    
+    <div class="card-premium3">
+      <p style="font-size: 2rem;"><span>Nuestros<br />programas<br />destacados</span></p>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>Servicio Nacional de Aprendizaje SENA - Centro de Materiales y Ensayos - Regional Distrito Capital</strong></p>
+    <p><strong>Dirección: Cra 30 # 17b -25 sur, Complejo Sur</strong></p>
+    <br />
+    <p>El SENA brinda a la ciudadanía, atención presencial en las 33 Regionales y 117 Centros de Formación</p>
+    <p>Línea de atención al ciudadano, empresario y línea PQRS: - Bogotá: +(57) 601 7366060 - Línea gratuita y resto del país 018000 910270</p>
+
+    <div class="footer-social">
+      <a aria-label="Instagram" class="social-icon" href="#"><svg viewbox="0 0 448 512" style="width: 20px; height: 20px;"><path d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" fill="#fff"></path></svg></a>
+      <a aria-label="Facebook" class="social-icon" href="#"><svg viewbox="0 0 512 512" style="width: 20px; height: 20px;"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z" fill="#fff"></path></svg></a>
+      <a aria-label="X" class="social-icon" href="#"><svg viewbox="0 0 448 512" style="width: 18px; height: 18px;"><path d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z" fill="#fff"></path></svg></a>
+      <a aria-label="YouTube" class="social-icon" href="#"><svg viewbox="0 0 576 512" style="width: 20px; height: 20px;"><path d="M549.7 124.1C543.5 100.4 524.9 81.8 501.4 75.5 458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5C51.2 81.8 32.7 100.4 26.4 124.1 15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6l0-162.4 142.7 81.2-142.7 81.2z" fill="#fff"></path></svg></a>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-handle">@SENAcomunica</span>
+      <span class="footer-web">www.sena.edu.co</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('bannerTrack');
+    const slides = Array.from(document.querySelectorAll('.banner-slide'));
+    const dots = Array.from(document.querySelectorAll('.banner-dot'));
+    const prevBtn = document.getElementById('bannerPrev');
+    const nextBtn = document.getElementById('bannerNext');
+    const currentTxt = document.getElementById('bannerCurrent');
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider(index) {
+      // Remover clase activa del anterior
+      slides[currentIndex].classList.remove('is-active');
+      dots[currentIndex].classList.remove('is-active');
+      
+      // Ajustar index limites
+      if(index >= totalSlides) currentIndex = 0;
+      else if(index < 0) currentIndex = totalSlides - 1;
+      else currentIndex = index;
+
+      // Desplazar el track
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Activar nuevo slide y dot
+      slides[currentIndex].classList.add('is-active');
+      dots[currentIndex].classList.add('is-active');
+      
+      // Actualizar texto numérico (ej: 01, 02)
+      currentTxt.textContent = String(currentIndex + 1).padStart(2, '0');
+    }
+
+    // Eventos Click en Botones
+    nextBtn.addEventListener('click', () => updateSlider(currentIndex + 1));
+    prevBtn.addEventListener('click', () => updateSlider(currentIndex - 1));
+
+    // Eventos Click en Puntos (Dots)
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const targetIndex = parseInt(e.target.getAttribute('data-index'));
+        updateSlider(targetIndex);
+      });
+    });
+
+    // Transición Automática cada 6 segundos
+    setInterval(() => {
+      updateSlider(currentIndex + 1);
+    }, 6000);
+  });
+</script>
