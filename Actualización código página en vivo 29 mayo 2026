@@ -1,0 +1,227 @@
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+   --verde-sena: #39A900;
+    --azul-oscuro: #00304D;
+    --amarillo-sena: #FCD300;
+    --gris-claro: #F6F6F6;
+    --blanco: #FFFFFF;
+   
+  /* ESTILOS PARA LOS ICONOS DE REDES SOCIALES EN EL PIE DE PÁGINA */
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Separación entre iconos */
+    margin: 15px 0;
+  }
+  .social-icon {
+    color: #FFFFFF;
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Cambio de color al amarillo institucional del SENA */
+  .social-icon:hover {
+    color: #FCD300; 
+  }
+  .footer-bottom {
+    margin-top: 15px;
+  }
+  .footer-handle {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+  .footer-web {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    text-decoration: none;
+  } 
+</style>
+
+<div style="max-width: 820px; margin: 20px auto; font-family: 'Work Sans', sans-serif; background: linear-gradient(180deg, rgba(49, 23, 44, 1) 0%, rgba(8, 78, 38, 1) 60%, rgba(57, 169, 0, 1) 100%); box-sizing: border-box; overflow: hidden; position: relative; border-radius: 8px;">
+  
+  <div style="display: flex; flex-wrap: wrap; background-color: transparent; width: 100%;">
+    
+    <div style="flex: 1.1; min-width: 320px; padding: 30px 15px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background-color: transparent;">
+      
+      <div style="width: 100%; max-width: 380px; background: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 2px solid #F6F6F6; box-sizing: border-box;">
+
+        <div style="background: #007832; padding: 22px 15px; text-align: center; border-bottom: 3px solid #39A900;">
+          <h2 style="margin: 0; color: #FFFFFF; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+              RADIO WEB SENA
+          </h2>
+          <p style="margin: 4px 0 0; color: #FFFFFF; font-size: 13px; font-weight: 400; opacity: 0.95;">
+            Centro de Materiales y Ensayos
+          </p>
+        </div>
+
+        <div style="padding: 25px 20px; text-align: center; background: #FFFFFF;">
+          
+          <div style="background: #F6F6F6; padding: 18px; border-radius: 12px; border: 1px solid #F6F6F6; min-height: 120px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
+            
+            <div data-type="newStreamPlayer" 
+                 data-publicToken="1b905143-d138-4b43-85a6-e3eef6902172" 
+                 data-theme="light" 
+                 data-color="39A900" 
+                 data-channelId="" 
+                 data-rendered="false" 
+                 class="cstrEmbed"
+                 style="margin: auto;">
+              
+              <a href="https://www.caster.fm" style="font-size: 11px; color: #999; text-decoration: none;">Shoutcast Hosting</a> | 
+              <a href="https://www.caster.fm" style="font-size: 11px; color: #999; text-decoration: none;">Stream Hosting</a> | 
+              <a href="https://www.caster.fm" style="font-size: 11px; color: #999; text-decoration: none;">Radio Server Hosting</a>
+            
+            </div>
+            <script src="https://cdn.cloud.caster.fm/widgets/embed.js"></script>
+          </div>
+
+          <div style="margin-top: 15px;">
+            <div style="display: inline-flex; align-items: center; background: #FFFFFF; border: 2px solid #39A900; padding: 4px 14px; border-radius: 25px;">
+              <span style="color: #000000; font-weight: 700; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase;">
+                <span style="color: #ff0000; margin-right: 4px; font-size: 14px;">•</span> EN VIVO
+              </span>
+            </div>
+          </div>
+
+          <p style="margin-top: 15px; margin-bottom: 0; color: #000000; font-size: 12px; line-height: 1.6; font-weight: 400;">
+            Escucha nuestra señal técnica y académica en directo. <br>
+            <strong style="color: #00304D; font-weight: 600;">SENA: Technology and Knowledge.</strong>
+          </p>
+        </div>
+
+        <div style="background: #007832; height: 10px; border-top: 1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+
+    </div>
+
+    <div style="flex: 1; min-width: 320px; background-color: #FCD300; padding: 35px 25px; box-sizing: border-box; color: #000000; position: relative; overflow: hidden; display: flex; align-items: center;">
+      
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_HbECmL6p03-Lp7IrrhaxbGzTA2yhVKDJOVHz9q4nxsrfUUkF6sta3SO4pU2fG22GmRGuMr0kifCzf9Iz083djdqDco-3RMXodoefpXdZ3o-lNW4uV0QXdKKIIp39vUqjZnd9G1S2K4lcF9ge1NybmkIiAQrk89MXmQDyOnR9TgKKiVLtNisfXfXL2TU/s1191/36a8ade185b49c1974b0ca53786ea10f20ae5f8c%20%281%29.png') center center / cover no-repeat; opacity: 0.22; mix-blend-mode: multiply; pointer-events: none; z-index: 1;"></div>
+      
+      <div style="position: relative; z-index: 2; width: 100%;">
+        <h2 style="text-align: center; font-size: 22px; font-weight: 700; margin-top: 0; margin-bottom: 25px; letter-spacing: -0.5px; color: #000000;">
+          Programación del día
+        </h2>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          
+          <button onclick="abrirPrograma('Inducción e Innovación CME', '08:00 AM - 10:00 AM', 'Espacio dedicado a la presentación de proyectos técnicos, desarrollo de materiales de ingeniería e investigación formativa del Centro.', 'Instructor Líder de Investigación', 'CME Innova')" 
+                  style="display: flex; width: 100%; text-align: left; background-color: #1A1A1A; border: none; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15); cursor: pointer; padding: 0; font-family: 'Work Sans', sans-serif;">
+            <div style="background-color: #FFFFFF; color: #000000; font-weight: 700; font-size: 12px; padding: 12px; min-width: 80px; text-align: center; display: flex; align-items: center; justify-content: center;">08:00 AM</div>
+            <div style="color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 12px 15px; display: flex; align-items: center;">INDUCCIÓN E INNOVACIÓN CME</div>
+          </button>
+          
+          <button onclick="abrirPrograma('Metalurgia y Ensayos Técnicos', '10:00 AM - 12:00 PM', 'Análisis en directo sobre las pruebas de materiales, laboratorios certificados y avances en metalmecánica.', 'Ing. de Laboratorio y Aprendices Voceros', 'EnsayosSENA')" 
+                  style="display: flex; width: 100%; text-align: left; background-color: #1A1A1A; border: none; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15); cursor: pointer; padding: 0; font-family: 'Work Sans', sans-serif;">
+            <div style="background-color: #FFFFFF; color: #000000; font-weight: 700; font-size: 12px; padding: 12px; min-width: 80px; text-align: center; display: flex; align-items: center; justify-content: center;">10:00 AM</div>
+            <div style="color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 12px 15px; display: flex; align-items: center;">METALURGIA Y ENSAYOS TÉCNICOS</div>
+          </button>
+
+          <button onclick="abrirPrograma('Magazín Informativo CME (En Vivo)', '12:00 PM - 02:00 PM', 'Transmisión oficial con boletines, convocatorias de la mesa de ayuda STIC y noticias del Director Regional del SENA.', 'Coordinación Académica y Comunicaciones', 'RadioWebCME')"
+                  style="display: flex; width: 100%; text-align: left; background-color: #1A1A1A; border: none; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15); cursor: pointer; padding: 0; font-family: 'Work Sans', sans-serif;">
+            <div style="background-color: #FF0000; color: #FFFFFF; font-weight: 700; font-size: 12px; padding: 12px; min-width: 80px; text-align: center; display: flex; align-items: center; justify-content: center;">EN VIVO</div>
+            <div style="color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 12px 15px; display: flex; align-items: center;">MAGAZÍN INFORMATIVO CME</div>
+          </button>
+
+          <button onclick="abrirPrograma('Cultura y Bienestar al Aprendiz', '02:00 PM - 04:00 PM', 'Entrevistas, apoyo al componente social, actividades lúdicas y convocatorias de monitorías para la comunidad.', 'Equipo de Bienestar al Aprendiz', 'SENA_Comunidad')" 
+                  style="display: flex; width: 100%; text-align: left; background-color: #1A1A1A; border: none; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15); cursor: pointer; padding: 0; font-family: 'Work Sans', sans-serif;">
+            <div style="background-color: #FFFFFF; color: #000000; font-weight: 700; font-size: 12px; padding: 12px; min-width: 80px; text-align: center; display: flex; align-items: center; justify-content: center;">02:00 PM</div>
+            <div style="color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 12px 15px; display: flex; align-items: center;">CULTURA Y BIENESTAR AL APRENDIZ</div>
+          </button>
+
+          <button onclick="abrirPrograma('Tecnología y Desarrollo de Software', '04:00 PM - 06:00 PM', 'Debates técnicos sobre programación, gestión de repositorios en GitHub Pages, diseño web y bases de datos.', 'Líderes de Semilleros ADSO', 'SenaDigital')" 
+                  style="display: flex; width: 100%; text-align: left; background-color: #1A1A1A; border: none; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15); cursor: pointer; padding: 0; font-family: 'Work Sans', sans-serif;">
+            <div style="background-color: #FFFFFF; color: #000000; font-weight: 700; font-size: 12px; padding: 12px; min-width: 80px; text-align: center; display: flex; align-items: center; justify-content: center;">04:00 PM</div>
+            <div style="color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 12px 15px; display: flex; align-items: center;">TECNOLOGÍA Y DESARROLLO SOFTWARE</div>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="width: 100%; height: 50px; background-color: transparent;"></div>
+
+  <footer style="padding: 30px 20px; color: #ffffff; text-align: center; box-sizing: border-box; font-size: 11px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.15);">    
+    <p><strong style="color: white;">Servicio Nacional de Aprendizaje SENA - Centro de Materiales y Ensayos - Regional Distrito Capital</strong></p>    
+    <p><strong style="color: white;">Dirección: Dirección del Centro: Cra 30 # 17b -25 sur, Complejo Sur</strong></p>    
+    <br />    
+    <p style="color: white;">El SENA brinda a la ciudadanía, atención presencial en las 33 Regionales y 117 Centros de Formación</p>    
+    <p style="color: white;">Línea de atención al ciudadano, empresario y línea PQRS: - Bogotá: +(57) 601 7366060 - Línea gratuita y resto del país 018000 910270</p>     
+    
+    <div class="footer-social">      
+      <a aria-label="Instagram" class="social-icon" href="#">        
+        <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" fill="rgb(255, 255, 255)"></path></svg>      
+      </a>      
+      <a aria-label="Facebook" class="social-icon" href="#">        
+        <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z" fill="rgb(255, 255, 255)"></path></svg>      
+      </a>      
+      <a aria-label="X" class="social-icon" href="#">        
+        <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z" fill="rgb(255, 255, 255)"></path></svg>      
+      </a>      
+      <a aria-label="YouTube" class="social-icon" href="#">        
+        <svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M549.7 124.1C543.5 100.4 524.9 81.8 501.4 75.5 458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5C51.2 81.8 32.7 100.4 26.4 124.1 15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6l0-162.4 142.7 81.2-142.7 81.2z" fill="rgb(255, 255, 255)"></path></svg>      
+      </a>      
+      <a aria-label="TikTok" class="social-icon" href="#">        
+        <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M448.5 209.9c-44 .1-87-13.6-122.8-39.2l0 178.7c0 33.1-10.1 65.4-29 92.6s-45.6 48-76.6 59.6-64.8 13.5-96.9 5.3-60.9-25.9-82.7-50.8-35.3-56-39-88.9 2.9-66.1 18.6-95.2 40-52.7 69.6-67.7 62.9-20.5 95.7-16l0 89.9c-15-4.7-31.1-4.6-46 .4s-27.9 14.6-37 27.3-14 28.1-13.9 43.9 5.2 31 14.5 43.7 22.4 22.1 37.4 26.9 31.1 4.8 46-.1 28-14.4 37.2-27.1 14.2-28.1 14.2-43.8l0-349.4 88 0c-.1 7.4 .6 14.9 1.9 22.2 3.1 16.3 9.4 31.9 18.7 45.7s21.3 25.6 35.2 34.6c19.9 13.1 43.2 20.1 67 20.1l0 87.4z" fill="rgb(255, 255, 255)"></path></svg>      
+      </a>    
+    </div>
+
+    <div class="footer-bottom">      
+      <span class="footer-handle" style="color: white;">@SENAcomunica</span>      
+      <a href="https://www.sena.edu.co" target="_blank" class="footer-web">www.sena.edu.co</a>    
+    </div>  
+  </footer>
+
+  <div id="modalPrograma" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 9999; padding: 20px; box-sizing: border-box;">
+    <div style="background-color: #1A1A1A; border: 2px solid #FFCC00; border-radius: 12px; width: 100%; max-width: 450px; padding: 25px; box-sizing: border-box; color: #FFFFFF; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      <button onclick="cerrarPrograma()" style="position: absolute; top: 12px; right: 15px; background: transparent; border: none; color: #FFCC00; font-size: 22px; cursor: pointer; font-weight: 700;">&times;</button>
+      
+      <div style="display: inline-block; background-color: #39A900; color: #FFFFFF; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;" id="modalHora">HORA</div>
+      <h3 style="margin: 0 0 15px 0; font-size: 20px; color: #FFCC00; border-bottom: 1px solid #333; padding-bottom: 10px;" id="modalTitulo">Título</h3>
+      
+      <p style="font-size: 13px; line-height: 1.6; color: #E0E0E0; margin: 0 0 15px 0;" id="modalDescripcion">Descripción académica o técnica.</p>
+      
+      <div style="background-color: #111; padding: 12px; border-radius: 6px; border-left: 3px solid #39A900; font-size: 12px; margin-bottom: 15px;">
+        <strong style="color: #39A900;">Locutor/Responsable:</strong> <span id="modalLocutor" style="color: #FFF;">Nombre</span>
+      </div>
+
+      <div style="font-size: 12px; color: #A3A3A3; display: flex; align-items: center; gap: 5px;">
+        <span> Hashtag Oficial:</span> <strong style="color: #FFCC00;" id="modalHashtag">#</strong>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script type='text/javascript'>
+  //<![CDATA[
+  function abrirPrograma(titulo, hora, descripcion, locutor, hashtag) {
+    var modal = document.getElementById('modalPrograma');
+    if (modal) {
+      document.getElementById('modalTitulo').innerText = titulo;
+      document.getElementById('modalHora').innerText = hora;
+      document.getElementById('modalDescripcion').innerText = descripcion;
+      document.getElementById('modalLocutor').innerText = locutor;
+      document.getElementById('modalHashtag').innerText = '#' + hashtag;
+      
+      modal.style.display = 'flex';
+    }
+  }
+
+  function cerrarPrograma() {
+    var modal = document.getElementById('modalPrograma');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+  //]]>
+</script>
