@@ -1,0 +1,610 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+  :root {
+    --verde-sena: #39A900; 
+    --verde-oscuro: #007832;
+    --azul-oscuro: #00304D;
+    --gris-claro: #F6F6F6;
+    --blanco: #FFFFFF;
+    --morado: #71267A;
+    --amarillo: #FCD300;
+    --gold: #f5c300;
+    --text-dark: #1a1a1a;
+    --text-muted: #666;
+  }
+
+  /* ── CONTENEDORES UNIFICADOS POR CATEGORÍA ── */
+  .seccion-categoria {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+  }
+
+  .cat-academica {
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWgmtZPa-M2foM3zqyC79DSgqMbAjVecnbRJ33ui7e9dhX7I-sjASye_NbiHThXfI2G8qLFE3AvsulztLmjhfL6e0WtUuaomXP3tL0QW7Za3CqkGvy6jUBRz3JfqTpq2ciPBRR3XoaMhRG5CyL4iycTKByqEPWyZkisd4Gkui4hzB3_90BWtP4R_MDecK8/s400/image%2014.png"), 
+                      linear-gradient(180deg, #007832 0%, #00304D 50%, #002238 100%);
+  }
+
+  .cat-informativa {
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg65m5FCm3p3YX1LPdCKVXPp9CgbyIN6ljKcBeXssbjW6PvckGh75fYf3wFfe8TnfNl5UAVp0fkFBkIA6Rg1aS7ZlyapT4-UP9MiSx2dqptU0EtvW6Zqlz2R9dtolZWwW8ognOR5qEt9ESrXDWtCJB7sLXivupyfm7gfaO0XmsrjIzzrrzcYnW-03yNlOoH/s1440/fondo%20categorias%20informativo.png"), 
+                      linear-gradient(180deg, #007832 0%, #71267A 50%, #4a1550 100%);
+  }
+
+  .cat-cultural {
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeq-jM0KGXFYOBGGhBkAJZS430GboOpOe2n3NUsoujtbTLitqUhfZlX3-xH8226bEz7RD7N-lIbd3FMbGV2pGNqthOPkerlJuMWN7YKPbNBFvlPz8mSmf4nx6YvzY4YNqBhNA5H___YdxLrFOmHbkwyVJp5wyrIHPjqbHZGMGljbn_XNSpf-TriuJpZMgA/s1440/fondo%20categorias%20culturales.png"), 
+                      linear-gradient(180deg, #007832 0%, #FCD300 50%, #b39200 100%);
+  }
+
+  /* ── HERO SECTION ── */
+  .hero {
+    padding: 60px 20px 30px;
+    text-align: center;
+  } 
+
+  .hero h1.cat-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--blanco);
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+
+  .hero h2.sub-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    color: var(--blanco);
+    margin-top: 20px;
+  }
+
+  /* ── GRID Y CONTENEDORES DE TARJETAS ── */
+  .container-card-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 0 10px 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 0px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    animation: fadeUp 0.5s ease both;
+    margin: 16px 24px;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a4e 0%, #6b4f10 100%);
+  }
+
+  .thumb-placeholder svg { width: 80%; max-width: 200px; opacity: 0.9; }
+
+  .boton-academico, .boton-informativo, .boton-cultural {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    transition: transform 0.2s;
+  }
+
+  .card:hover .boton-academico,
+  .card:hover .boton-informativo,
+  .card:hover .boton-cultural { 
+    transform: scale(1.15); 
+  }
+
+  /* ── AJUSTES DE CONTENIDO DE LAS TARJETAS ── */
+.card-body { 
+  padding: 20px 18px; /* Más espacio interno para que el texto no toque los bordes */
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Crea un espacio uniforme automático entre cada elemento */
+}
+
+.card-program { 
+  font-family: 'Montserrat', sans-serif; 
+  font-weight: 700; 
+  font-size: 1.05rem; /* Letra ligeramente más grande para el título del programa */
+  color: var(--azul-oscuro); /* Cambiado a azul oscuro para mayor contraste institucional */
+  margin: 0; 
+}
+
+.card-time { 
+  font-family: 'Montserrat', sans-serif; 
+  font-weight: 600; 
+  font-size: 0.85rem; 
+  color: var(--verde-oscuro); 
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.card-desc { 
+  font-family: sans-serif;
+  font-size: 0.82rem; 
+  color: var(--text-muted); 
+  line-height: 1.4; /* Espaciado entre líneas para que sea cómodo de leer */
+  margin: 4px 0 0 0; 
+}
+
+/* ── AJUSTE DEL LOGO (PODIUM) ── */
+/* Esto centra el texto horizontal y verticalmente usando CSS, HTML */
+.thumb-placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+.thumb-placeholder svg text {
+  text-anchor: middle;   /* Modifica el punto de anclaje al centro del texto */
+  x: 50% !important;    
+}
+  /* ── SECCIONES DETALLADAS DE REPRODUCCIÓN ── */
+  .detalle-reproductor {
+    display: none; 
+    max-width: 1100px;
+    margin: 20px auto 0 auto;
+    animation: slideDown 0.4s ease forwards;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  #reproductor-academico { 
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWgmtZPa-M2foM3zqyC79DSgqMbAjVecnbRJ33ui7e9dhX7I-sjASye_NbiHThXfI2G8qLFE3AvsulztLmjhfL6e0WtUuaomXP3tL0QW7Za3CqkGvy6jUBRz3JfqTpq2ciPBRR3XoaMhRG5CyL4iycTKByqEPWyZkisd4Gkui4hzB3_90BWtP4R_MDecK8/s400/image%2014.png"), linear-gradient(180deg, #007832 0%, #00304D 100%); 
+    border-top: 4px solid var(--verde-sena); 
+  }
+  #reproductor-informativo { 
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg65m5FCm3p3YX1LPdCKVXPp9CgbyIN6ljKcBeXssbjW6PvckGh75fYf3wFfe8TnfNl5UAVp0fkFBkIA6Rg1aS7ZlyapT4-UP9MiSx2dqptU0EtvW6Zqlz2R9dtolZWwW8ognOR5qEt9ESrXDWtCJB7sLXivupyfm7gfaO0XmsrjIzzrrzcYnW-03yNlOoH/s1440/fondo%20categorias%20informativo.png"), linear-gradient(180deg, #007832 0%, #71267A 100%); 
+    border-top: 4px solid #00a499; 
+  }
+  #reproductor-cultural { 
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeq-jM0KGXFYOBGGhBkAJZS430GboOpOe2n3NUsoujtbTLitqUhfZlX3-xH8226bEz7RD7N-lIbd3FMbGV2pGNqthOPkerlJuMWN7YKPbNBFvlPz8mSmf4nx6YvzY4YNqBhNA5H___YdxLrFOmHbkwyVJp5wyrIHPjqbHZGMGljbn_XNSpf-TriuJpZMgA/s1440/fondo%20categorias%20culturales.png"), linear-gradient(180deg, #007832 0%, #FCD300 100%); 
+    border-top: 4px solid #b39200; 
+  }
+
+  .wrapper-reproductor {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background: rgba(0, 0, 0, 0.4); 
+  }
+
+  .info-episodio {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    align-items: flex-start;
+  }
+
+  .meta-texto { flex: 1; }
+  .meta-texto h3 { font-size: 1.4rem; font-weight: 700; margin: 0 0 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+  .meta-texto p { font-size: 0.9rem; opacity: 0.9; margin: 4px 0; line-height: 1.4; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+
+  .miniatura-reproductor {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    object-fit: cover;
+  }
+
+  .lista-capitulos {
+    background-color: rgba(0, 34, 56, 0.92); 
+    border-radius: 8px;
+    padding: 20px;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 25px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  }
+
+  .item-capitulo {
+    padding: 12px 15px;
+    border-bottom: 1px dashed rgba(255,255,255,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+
+  .item-capitulo:hover { background: rgba(255,255,255,0.12); }
+  .item-capitulo:last-child { border-bottom: none; }
+
+  .barra-control {
+    background-color: #007832;
+    border-radius: 6px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .controles-reproduccion { display: flex; align-items: center; gap: 20px; font-size: 1.2rem; }
+  .controles-reproduccion i { cursor: pointer; transition: transform 0.2s; }
+  .controles-reproduccion i:hover { transform: scale(1.15); color: var(--gold); }
+
+  .progreso-audio {
+    flex: 1;
+    margin: 0 25px;
+    height: 5px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .progreso-actual { width: 35%; height: 100%; background: var(--verde-sena); border-radius: 3px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; gap: 18px; }
+    .card { margin: 10px 16px; }
+    .info-episodio { flex-direction: column-reverse; align-items: center; text-align: center; }
+    .barra-control { flex-direction: column; gap: 15px; }
+    .progreso-audio { width: 100%; margin: 10px 0; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background-color: var(--verde-oscuro);
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 40px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  footer p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 6px auto;
+    max-width: 800px;
+  }
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0 20px 0;
+  }
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  .social-icon:hover {
+    background-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .social-icon svg { width: 18px; height: 18px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+</style>
+
+<div class="seccion-categoria cat-academica">
+  <section class="hero">
+    <h1 class="cat-title"><span style="font-family: Calibri;">Categorías</span></h1>
+    <h2 class="sub-title"><span style="font-family: Calibri;">Académicos</span></h2>
+  </section>
+
+  <section class="container-card-wrapper">
+    <div class="grid">
+      <script>
+        for (let i = 1; i <= 6; i++) {
+          document.write(`
+            <article class="card" onclick="desplegarReproductor('academico', 'Programa Académico ' + ${i})">
+              <div class="card-thumb">
+                <div class="thumb-placeholder">
+                  <svg viewbox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+                    <text fill="#fff" font-family="Georgia,serif" font-size="34" font-weight="900" letter-spacing="-1" x="10" y="42"><tspan fill="#fff">P</tspan><tspan fill="#f5c300">O</tspan><tspan fill="#fff">DIUM</tspan></text>
+                    <text fill="rgba(255,255,255,0.7)" font-family="Arial,sans-serif" font-size="8" letter-spacing="2" x="10" y="62">THE KNOWLEDGE PODCAST</text>
+                  </svg>
+                </div>
+                <div class="boton-academico">
+                  <svg fill="none" height="14" viewbox="0 0 12 14" width="12"><path d="M1 1l10 6-10 6V1z" fill="#1a1a1a"></path></svg>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-program">Programa de la mañana ${i}</p>
+                <p class="card-time">09:00 am</p>
+                <p class="card-desc">Descripción detallada del episodio académico transmitido.</p>
+              </div>
+            </article>
+          `);
+        }
+      </script>
+    </div>
+  </section>
+
+  <div id="reproductor-academico" class="detalle-reproductor">
+    <div class="wrapper-reproductor">
+      <div class="info-episodio">
+        <div class="meta-texto">
+          <h3 id="titulo-repro-academico">Programa Centro de Materiales y Ensayos Académico</h3>
+          <p><strong>Autores:</strong> Aprendices CME</p>
+          <p><strong>Capítulos:</strong> 10 disponibles</p>
+          <p><strong>Descripción:</strong> Contenidos educativos y proyectos de innovación enfocados en el aprendizaje del centro de formación.</p>
+        </div>
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh40pNuzYG2xmdh1PuUEzUgX4y1R42ryVBaslmVULE6U-90z0vvKe_el-35VZHeNibtL40oRmeU203GnAiA3_FKF6aOQJB_-6UZdKq-ohBCgQw_2i_EMYtLGmLK-GEqziNLfIuncrntTfG-FECTyZ5OSAWRSx1sd5cUQeqEBMoWxJlpgOc0tpLJbGw2K5E/s320/WhatsApp%20Image%202026-05-14%20at%2010.13.20%20AM.jpeg" class="miniatura-reproductor" alt="Miniatura">
+      </div>
+      <div class="lista-capitulos">
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 1...')"><span><i class="fa-solid fa-play" style="margin-right:10px; color:var(--gold);"></i> Capítulo 1 - Escuchar</span><span style="opacity:0.7">12:34</span></div>
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 2...')"><span><i class="fa-solid fa-play" style="margin-right:10px;"></i> Capítulo 2 - Escuchar</span><span style="opacity:0.7">15:20</span></div>
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 3...')"><span><i class="fa-solid fa-play" style="margin-right:10px;"></i> Capítulo 3 - Escuchar</span><span style="opacity:0.7">18:45</span></div>
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 4...')"><span><i class="fa-solid fa-play" style="margin-right:10px;"></i> Capítulo 4 - Escuchar</span><span style="opacity:0.7">10:12</span></div>
+      </div>
+      <div class="barra-control">
+        <div class="controles-reproduccion">
+          <i class="fa-solid fa-volume-high"></i>
+          <i class="fa-solid fa-backward-step"></i>
+          <i class="fa-solid fa-circle-play" style="font-size: 2rem; color: var(--gold);"></i>
+          <i class="fa-solid fa-forward-step"></i>
+        </div>
+        <div class="progreso-audio"><div class="progreso-actual"></div></div>
+        <div style="font-size:0.85rem;"><i class="fa-regular fa-clock"></i> 00:01</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="seccion-categoria cat-informativa">
+  <section class="hero">
+    <h1 class="cat-title"><span style="font-family: Calibri;">Categorías</span></h1>
+    <h2 class="sub-title"><span style="font-family: Calibri;">Informativos</span></h2>
+  </section>
+
+  <section class="container-card-wrapper">
+    <div class="grid">
+      <script>
+        for (let i = 1; i <= 6; i++) {
+          document.write(`
+            <article class="card" onclick="desplegarReproductor('informativo', 'Programa Informativo ' + ${i})">
+              <div class="card-thumb">
+                <div class="thumb-placeholder">
+                  <svg viewbox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+                    <text fill="#fff" font-family="Georgia,serif" font-size="34" font-weight="900" letter-spacing="-1" x="10" y="42"><tspan fill="#fff">P</tspan><tspan fill="#f5c300">O</tspan><tspan fill="#fff">DIUM</tspan></text>
+                    <text fill="rgba(255,255,255,0.7)" font-family="Arial,sans-serif" font-size="8" letter-spacing="2" x="10" y="62">THE KNOWLEDGE PODCAST</text>
+                  </svg>
+                </div>
+                <div class="boton-informativo">
+                  <svg fill="none" height="14" viewbox="0 0 12 14" width="12"><path d="M1 1l10 6-10 6V1z" fill="#1a1a1a"></path></svg>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-program">Programa de la mañana ${i}</p>
+                <p class="card-time">09:00 am</p>
+                <p class="card-desc">Descripción detallada del episodio informativo transmitido.</p>
+              </div>
+            </article>
+          `);
+        }
+      </script>
+    </div>
+  </section>
+
+  <div id="reproductor-informativo" class="detalle-reproductor">
+    <div class="wrapper-reproductor">
+      <div class="info-episodio">
+        <div class="meta-texto">
+          <h3 id="titulo-repro-informativo">Programa Centro de Materiales y Ensayos Informativo</h3>
+          <p><strong>Autores:</strong> Comunicaciones CME</p>
+          <p><strong>Capítulos:</strong> 5 disponibles</p>
+          <p><strong>Descripción:</strong> Avisos de interés general, boletines institucionales y noticias de actualidad para la comunidad educativa.</p>
+        </div>
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh40pNuzYG2xmdh1PuUEzUgX4y1R42ryVBaslmVULE6U-90z0vvKe_el-35VZHeNibtL40oRmeU203GnAiA3_FKF6aOQJB_-6UZdKq-ohBCgQw_2i_EMYtLGmLK-GEqziNLfIuncrntTfG-FECTyZ5OSAWRSx1sd5cUQeqEBMoWxJlpgOc0tpLJbGw2K5E/s320/WhatsApp%20Image%202026-05-14%20at%2010.13.20%20AM.jpeg" class="miniatura-reproductor" alt="Miniatura">
+      </div>
+      <div class="lista-capitulos">
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 1...')"><span><i class="fa-solid fa-play" style="margin-right:10px; color:var(--gold);"></i> Capítulo 1 - Escuchar</span><span style="opacity:0.7">08:15</span></div>
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 2...')"><span><i class="fa-solid fa-play" style="margin-right:10px;"></i> Capítulo 2 - Escuchar</span><span style="opacity:0.7">14:50</span></div>
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 3...')"><span><i class="fa-solid fa-play" style="margin-right:10px;"></i> Capítulo 3 - Escuchar</span><span style="opacity:0.7">11:05</span></div>
+      </div>
+      <div class="barra-control">
+        <div class="controles-reproduccion">
+          <i class="fa-solid fa-volume-high"></i>
+          <i class="fa-solid fa-backward-step"></i>
+          <i class="fa-solid fa-circle-play" style="font-size: 2rem; color: var(--gold);"></i>
+          <i class="fa-solid fa-forward-step"></i>
+        </div>
+        <div class="progreso-audio"><div class="progreso-actual"></div></div>
+        <div style="font-size:0.85rem;"><i class="fa-regular fa-clock"></i> 00:01</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="seccion-categoria cat-cultural">
+  <section class="hero">
+    <h1 class="cat-title"><span style="color: white; font-family: Calibri;">Categorías</span></h1>
+    <h2 class="sub-title"><span style="color: white; font-family: Calibri;">Culturales</span></h2>
+  </section>
+
+  <section class="container-card-wrapper">
+    <div class="grid">
+      <script>
+        for (let i = 1; i <= 6; i++) {
+          document.write(`
+            <article class="card" onclick="desplegarReproductor('cultural', 'Programa Cultural ' + ${i})">
+              <div class="card-thumb">
+                <div class="thumb-placeholder">
+                  <svg viewbox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+                    <text fill="#fff" font-family="Georgia,serif" font-size="34" font-weight="900" letter-spacing="-1" x="10" y="42"><tspan fill="#fff">P</tspan><tspan fill="#f5c300">O</tspan><tspan fill="#fff">DIUM</tspan></text>
+                    <text fill="rgba(255,255,255,0.7)" font-family="Arial,sans-serif" font-size="8" letter-spacing="2" x="10" y="62">THE KNOWLEDGE PODCAST</text>
+                  </svg>
+                </div>
+                <div class="boton-cultural">
+                  <svg fill="none" height="14" viewbox="0 0 12 14" width="12"><path d="M1 1l10 6-10 6V1z" fill="#1a1a1a"></path></svg>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-program">Programa de la mañana ${i}</p>
+                <p class="card-time">09:00 am</p>
+                <p class="card-desc">Descripción detallada del episodio cultural transmitido.</p>
+              </div>
+            </article>
+          `);
+        }
+      </script>
+    </div>
+  </section>
+
+  <div id="reproductor-cultural" class="detalle-reproductor">
+    <div class="wrapper-reproductor">
+      <div class="info-episodio">
+        <div class="meta-texto">
+          <h3 id="titulo-repro-cultural">Programa Centro de Materiales y Ensayos Cultural</h3>
+          <p><strong>Autores:</strong> Bienestar al Aprendiz</p>
+          <p><strong>Capítulos:</strong> 8 disponibles</p>
+          <p><strong>Descripción:</strong> Expresiones artísticas, talento SENA, crónicas culturales e historias inspiradoras de la comunidad.</p>
+        </div>
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh40pNuzYG2xmdh1PuUEzUgX4y1R42ryVBaslmVULE6U-90z0vvKe_el-35VZHeNibtL40oRmeU203GnAiA3_FKF6aOQJB_-6UZdKq-ohBCgQw_2i_EMYtLGmLK-GEqziNLfIuncrntTfG-FECTyZ5OSAWRSx1sd5cUQeqEBMoWxJlpgOc0tpLJbGw2K5E/s320/WhatsApp%20Image%202026-05-14%20at%2010.13.20%20AM.jpeg" class="miniatura-reproductor" alt="Miniatura">
+      </div>
+      <div class="lista-capitulos">
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 1...')"><span><i class="fa-solid fa-play" style="margin-right:10px; color:var(--gold);"></i> Capítulo 1 - Escuchar</span><span style="opacity:0.7">14:22</span></div>
+        <div class="item-capitulo" onclick="alert('Reproduciendo Capítulo 2...')"><span><i class="fa-solid fa-play" style="margin-right:10px;"></i> Capítulo 2 - Escuchar</span><span style="opacity:0.7">22:10</span></div>
+      </div>
+      <div class="barra-control">
+        <div class="controles-reproduccion">
+          <i class="fa-solid fa-volume-high"></i>
+          <i class="fa-solid fa-backward-step"></i>
+          <i class="fa-solid fa-circle-play" style="font-size: 2rem; color: var(--gold);"></i>
+          <i class="fa-solid fa-forward-step"></i>
+        </div>
+        <div class="progreso-audio"><div class="progreso-actual"></div></div>
+        <div style="font-size:0.85rem;"><i class="fa-regular fa-clock"></i> 00:01</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><strong style="color: white;">Servicio Nacional de Aprendizaje SENA - Centro de Materiales y Ensayos - Regional Distrito Capital</strong></p>
+  <p><strong style="color: white;">Dirección: Dirección del Centro: Cra 30 # 17b -25 sur, Complejo Sur</strong></p>
+  <br />
+  <p style="color: white;">El SENA brinda a la ciudadanía, atención presencial en las 33 Regionales y 117 Centros de Formación</p>
+  <p style="color: white;">Línea de atención al ciudadano, empresario y línea PQRS: - Bogotá: +(57) 601 7366060 - Línea gratuita y resto del país 018000 910270</p>
+  <div class="footer-social">
+    <a aria-label="Instagram" class="social-icon" href="#">
+      <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" fill="rgb(255, 255, 255)"></path></svg>
+    </a>
+    <a aria-label="Facebook" class="social-icon" href="#">
+      <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z" fill="rgb(255, 255, 255)"></path></svg>
+    </a>
+    <a aria-label="X" class="social-icon" href="#">
+      <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z" fill="rgb(255, 255, 255)"></path></svg>
+    </a>
+    <a aria-label="YouTube" class="social-icon" href="#">
+      <svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.7 124.1C543.5 100.4 524.9 81.8 501.4 75.5 458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5C51.2 81.8 32.7 100.4 26.4 124.1 15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6l0-162.4 142.7 81.2-142.7 81.2z" fill="rgb(255, 255, 255)"></path></svg>
+    </a>
+    <a aria-label="TikTok" class="social-icon" href="#">
+      <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448.5 209.9c-44 .1-87-13.6-122.8-39.2l0 178.7c0 33.1-10.1 65.4-29 92.6s-45.6 48-76.6 59.6-64.8 13.5-96.9 5.3-60.9-25.9-82.7-50.8-35.3-56-39-88.9 2.9-66.1 18.6-95.2 40-52.7 69.6-67.7 62.9-20.5 95.7-16l0 89.9c-15-4.7-31.1-4.6-46 .4s-27.9 14.6-37 27.3-14 28.1-13.9 43.9 5.2 31 14.5 43.7 22.4 22.1 37.4 26.9 31.1 4.8 46-.1 28-14.4 37.2-27.1 14.2-28.1 14.2-43.8l0-349.4 88 0c-.1 7.4 .6 14.9 1.9 22.2 3.1 16.3 9.4 31.9 18.7 45.7s21.3 25.6 35.2 34.6c19.9 13.1 43.2 20.1 67 20.1l0 87.4z" fill="rgb(255, 255, 255)"></path></svg>
+    </a>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-handle" style="color: white;">@SENAcomunica</span>
+    <span class="footer-web" style="color: white;">www.sena.edu.co</span>
+  </div>
+</footer>
+
+<script>
+  function desplegarReproductor(categoria, nombrePrograma) {
+    // 1. Ubicar todos los contenedores de reproductor
+    const todosLosReproductores = document.querySelectorAll('.detalle-reproductor');
+    // 2. Ubicar el reproductor específico al que se le hizo clic
+    const reproductorObjetivo = document.getElementById('reproductor-' + categoria);
+    
+    if (!reproductorObjetivo) return; // Control de seguridad
+
+    // Verificar si ya está visible
+    const yaEstaAbierto = window.getComputedStyle(reproductorObjetivo).display === 'block';
+
+    // 3. Ocultar todos los reproductores primero
+    todosLosReproductores.forEach(rep => {
+      rep.style.display = 'none';
+    });
+
+    // 4. Si no estaba abierto, mostrarlo y cambiar dinámicamente el título interno
+    if (!yaEstaAbierto) {
+      reproductorObjetivo.style.display = 'block';
+      
+      const campoTitulo = document.getElementById('titulo-repro-' + categoria);
+      if (campoTitulo) {
+        campoTitulo.innerText = nombrePrograma;
+      }
+
+      // Desplazamiento suave al reproductor
+      reproductorObjetivo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+</script>
